@@ -7,7 +7,6 @@ License:	GPL
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
 # Source0-md5:	83d26649ab672c53a699475cf1320e3c
-# Source0-size:	130700
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	libdsk-devel
