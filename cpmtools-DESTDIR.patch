@@ -1,0 +1,44 @@
+--- cpmtools-2.1/Makefile.in.orig	2002-04-17 22:32:38.000000000 +0200
++++ cpmtools-2.1/Makefile.in	2003-08-15 15:20:05.546395792 +0200
+@@ -77,23 +77,24 @@
+ 		-./fsck.cpm -f pcw -n badfs/label
+ 
+ install:	all
+-		$(INSTALL) -s -m 755 cpmls $(BINDIR)/cpmls
+-		$(INSTALL) -s -m 755 cpmcp $(BINDIR)/cpmcp
+-		$(INSTALL) -s -m 755 cpmrm $(BINDIR)/cpmrm
+-		$(INSTALL) -s -m 755 cpmchmod $(BINDIR)/cpmchmod
+-		$(INSTALL) -s -m 755 cpmchattr $(BINDIR)/cpmchattr
+-		$(INSTALL) -s -m 755 mkfs.cpm $(BINDIR)/mkfs.cpm
+-		$(INSTALL) -s -m 755 fsck.cpm $(BINDIR)/fsck.cpm
+-		$(INSTALL) -s -m 755 fsed.cpm $(BINDIR)/fsed.cpm
+-		$(INSTALL_DATA) diskdefs @datadir@/diskdefs
+-		$(INSTALL_DATA) cpmls.1 $(MANDIR)/man1/cpmls.1
+-		$(INSTALL_DATA) cpmcp.1 $(MANDIR)/man1/cpmcp.1
+-		$(INSTALL_DATA) cpmrm.1 $(MANDIR)/man1/cpmrm.1
+-		$(INSTALL_DATA) cpmchmod.1 $(MANDIR)/man1/cpmchmod.1
+-		$(INSTALL_DATA) cpmchmod.1 $(MANDIR)/man1/cpmchattr.1
+-		$(INSTALL_DATA) mkfs.cpm.1 $(MANDIR)/man1/mkfs.cpm.1
+-		$(INSTALL_DATA) fsck.cpm.1 $(MANDIR)/man1/fsck.cpm.1
+-		$(INSTALL_DATA) fsed.cpm.1 $(MANDIR)/man1/fsed.cpm.1
++		$(INSTALL) -m 755 -d $(DESTDIR)$(BINDIR) $(DESTDIR)$(MANDIR)/man1 $(DESTDIR)@datadir@
++		$(INSTALL) -m 755 cpmls $(DESTDIR)$(BINDIR)/cpmls
++		$(INSTALL) -m 755 cpmcp $(DESTDIR)$(BINDIR)/cpmcp
++		$(INSTALL) -m 755 cpmrm $(DESTDIR)$(BINDIR)/cpmrm
++		$(INSTALL) -m 755 cpmchmod $(DESTDIR)$(BINDIR)/cpmchmod
++		$(INSTALL) -m 755 cpmchattr $(DESTDIR)$(BINDIR)/cpmchattr
++		$(INSTALL) -m 755 mkfs.cpm $(DESTDIR)$(BINDIR)/mkfs.cpm
++		$(INSTALL) -m 755 fsck.cpm $(DESTDIR)$(BINDIR)/fsck.cpm
++		$(INSTALL) -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
++		$(INSTALL_DATA) diskdefs $(DESTDIR)@datadir@/diskdefs
++		$(INSTALL_DATA) cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
++		$(INSTALL_DATA) cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1
++		$(INSTALL_DATA) cpmrm.1 $(DESTDIR)$(MANDIR)/man1/cpmrm.1
++		$(INSTALL_DATA) cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchmod.1
++		$(INSTALL_DATA) cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchattr.1
++		$(INSTALL_DATA) mkfs.cpm.1 $(DESTDIR)$(MANDIR)/man1/mkfs.cpm.1
++		$(INSTALL_DATA) fsck.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsck.cpm.1
++		$(INSTALL_DATA) fsed.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsed.cpm.1
+ 
+ clean:
+ 		rm -f *$(OBJEXT) *.1 *.5
