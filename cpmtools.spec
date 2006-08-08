@@ -29,7 +29,7 @@ Z80-PC, ale dzia³a tak¿e ze stacjami dyskietek.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
