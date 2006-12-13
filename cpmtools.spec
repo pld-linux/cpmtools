@@ -1,12 +1,12 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl):	Narzêdzia pozwalaj±ce na dostêp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.5
+Version:	2.6
 Release:	1
 License:	GPL v2+
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
-# Source0-md5:	11fb7c34229e835537f87f170abd6035
+# Source0-md5:	22f3bed0251fd48cb979e7500f8eed35
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	libdsk-devel
