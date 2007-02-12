@@ -1,5 +1,5 @@
 Summary:	Tools for accessing CP/M file systems
-Summary(pl.UTF-8):   Narzędzia pozwalające na dostęp do systemów plików CP/M
+Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
 Version:	2.6
 Release:	1
