@@ -1,5 +1,5 @@
 Summary:	Tools for accessing CP/M file systems
-Summary(pl):	Narz阣zia pozwalaj眂e na dost阷 do system體 plik體 CP/M
+Summary(pl.UTF-8):   Narz臋dzia pozwalaj膮ce na dost臋p do system贸w plik贸w CP/M
 Name:		cpmtools
 Version:	2.6
 Release:	1
@@ -21,11 +21,11 @@ well-known mtools package, which accesses MSDOS file systems. It's
 used mainly for file exchange with a Z80-PC simulator, but it works on
 floppy devices as well.
 
-%description -l pl
-Ten pakiet pozwala na dost阷 do system體 plik體 CP/M w spos骲 podobny
-do dobrze znanego pakietu mtools, kt髍y pozwala na dost阷 do system體
-plik體 MSDOS. Pakiet ten s硊縴 g丑wnie do wymiany plik體 z symulatorem
-Z80-PC, ale dzia砤 tak縠 ze stacjami dyskietek.
+%description -l pl.UTF-8
+Ten pakiet pozwala na dost臋p do system贸w plik贸w CP/M w spos贸b podobny
+do dobrze znanego pakietu mtools, kt贸ry pozwala na dost臋p do system贸w
+plik贸w MSDOS. Pakiet ten s艂u偶y g艂贸wnie do wymiany plik贸w z symulatorem
+Z80-PC, ale dzia艂a tak偶e ze stacjami dyskietek.
 
 %prep
 %setup -q
