@@ -1,19 +1,17 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.6
+Version:	2.7
 Release:	1
-License:	GPL v2+
+License:	GPL v3+
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
-# Source0-md5:	22f3bed0251fd48cb979e7500f8eed35
+# Source0-md5:	0deadd1e8baac3808691bef73ddbb5c7
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	libdsk-devel
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_datadir	%{_prefix}/share/misc
 
 %description
 This package allows to access CP/M file systems similar to the
@@ -34,6 +32,7 @@ Z80-PC, ale działa także ze stacjami dyskietek.
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure \
+	--datarootdir=%{_datadir}/misc \
 	--with-libdsk
 
 %{__make}
@@ -52,6 +51,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc NEWS README
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/diskdefs
-%{_mandir}/man[15]/*
+%attr(755,root,root) %{_bindir}/cpm*
+%attr(755,root,root) %{_bindir}/fsck.cpm
+%attr(755,root,root) %{_bindir}/fsed.cpm
+%attr(755,root,root) %{_bindir}/mkfs.cpm
+%{_datadir}/misc/diskdefs
+%{_mandir}/man1/cpm*.1*
+%{_mandir}/man1/fsck.cpm.1*
+%{_mandir}/man1/fsed.cpm.1*
+%{_mandir}/man1/mkfs.cpm.1*
+%{_mandir}/man5/cpm.5*
