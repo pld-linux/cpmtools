@@ -1,7 +1,6 @@
-diff -urN cpmtools-2.4.orig/Makefile.in cpmtools-2.4/Makefile.in
---- cpmtools-2.4.orig/Makefile.in	2004-03-29 07:44:39.000000000 +0000
-+++ cpmtools-2.4/Makefile.in	2004-10-18 22:10:27.169039872 +0000
-@@ -77,24 +77,26 @@
+--- cpmtools-2.7/Makefile.in.orig	2007-11-26 15:46:14.000000000 +0100
++++ cpmtools-2.7/Makefile.in	2008-02-29 18:06:46.681653449 +0100
+@@ -79,24 +79,24 @@
  		-./fsck.cpm -f pcw -n badfs/label
  
  install:	all
@@ -13,7 +12,7 @@ diff -urN cpmtools-2.4.orig/Makefile.in cpmtools-2.4/Makefile.in
 -		$(INSTALL) -s -m 755 mkfs.cpm $(BINDIR)/mkfs.cpm
 -		$(INSTALL) -s -m 755 fsck.cpm $(BINDIR)/fsck.cpm
 -		$(INSTALL) -s -m 755 fsed.cpm $(BINDIR)/fsed.cpm
--		$(INSTALL_DATA) diskdefs @datadir@/diskdefs
+-		$(INSTALL_DATA) diskdefs @datarootdir@/diskdefs
 -		$(INSTALL_DATA) cpmls.1 $(MANDIR)/man1/cpmls.1
 -		$(INSTALL_DATA) cpmcp.1 $(MANDIR)/man1/cpmcp.1
 -		$(INSTALL_DATA) cpmrm.1 $(MANDIR)/man1/cpmrm.1
@@ -23,26 +22,24 @@ diff -urN cpmtools-2.4.orig/Makefile.in cpmtools-2.4/Makefile.in
 -		$(INSTALL_DATA) fsck.cpm.1 $(MANDIR)/man1/fsck.cpm.1
 -		$(INSTALL_DATA) fsed.cpm.1 $(MANDIR)/man1/fsed.cpm.1
 -		$(INSTALL_DATA) cpm.5 $(MANDIR)/man5/cpm.5
-+		$(INSTALL) -m 755 -d $(DESTDIR)$(BINDIR) $(DESTDIR)$(MANDIR)/man1 $(DESTDIR)/usr/share/misc
-+		$(INSTALL) -m 755 -d $(DESTDIR)$(MANDIR)/man5
-+		$(INSTALL) -s -m 755 cpmls $(DESTDIR)$(BINDIR)/cpmls
-+		$(INSTALL) -s -m 755 cpmcp $(DESTDIR)$(BINDIR)/cpmcp
-+		$(INSTALL) -s -m 755 cpmrm $(DESTDIR)$(BINDIR)/cpmrm
-+		$(INSTALL) -s -m 755 cpmchmod $(DESTDIR)$(BINDIR)/cpmchmod
-+		$(INSTALL) -s -m 755 cpmchattr $(DESTDIR)$(BINDIR)/cpmchattr
-+		$(INSTALL) -s -m 755 mkfs.cpm $(DESTDIR)$(BINDIR)/mkfs.cpm
-+		$(INSTALL) -s -m 755 fsck.cpm $(DESTDIR)$(BINDIR)/fsck.cpm
-+		$(INSTALL) -s -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
-+		$(INSTALL_DATA) diskdefs $(DESTDIR)/usr/share/misc/diskdefs
-+		$(INSTALL_DATA) cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
-+		$(INSTALL_DATA) cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1
-+		$(INSTALL_DATA) cpmrm.1 $(DESTDIR)$(MANDIR)/man1/cpmrm.1
-+		$(INSTALL_DATA) cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchmod.1
-+		$(INSTALL_DATA) cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchattr.1
-+		$(INSTALL_DATA) mkfs.cpm.1 $(DESTDIR)$(MANDIR)/man1/mkfs.cpm.1
-+		$(INSTALL_DATA) fsck.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsck.cpm.1
-+		$(INSTALL_DATA) fsed.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsed.cpm.1
-+		$(INSTALL_DATA) cpm.5 $(DESTDIR)$(MANDIR)/man5/cpm.5
++		$(INSTALL) -D -m 755 cpmls $(DESTDIR)$(BINDIR)/cpmls
++		$(INSTALL) -D -m 755 cpmcp $(DESTDIR)$(BINDIR)/cpmcp
++		$(INSTALL) -D -m 755 cpmrm $(DESTDIR)$(BINDIR)/cpmrm
++		$(INSTALL) -D -m 755 cpmchmod $(DESTDIR)$(BINDIR)/cpmchmod
++		$(INSTALL) -D -m 755 cpmchattr $(DESTDIR)$(BINDIR)/cpmchattr
++		$(INSTALL) -D -m 755 mkfs.cpm $(DESTDIR)$(BINDIR)/mkfs.cpm
++		$(INSTALL) -D -m 755 fsck.cpm $(DESTDIR)$(BINDIR)/fsck.cpm
++		$(INSTALL) -D -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
++		$(INSTALL_DATA) -D diskdefs $(DESTDIR)@datarootdir@/diskdefs
++		$(INSTALL_DATA) -D cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
++		$(INSTALL_DATA) -D cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1
++		$(INSTALL_DATA) -D cpmrm.1 $(DESTDIR)$(MANDIR)/man1/cpmrm.1
++		$(INSTALL_DATA) -D cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchmod.1
++		$(INSTALL_DATA) -D cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchattr.1
++		$(INSTALL_DATA) -D mkfs.cpm.1 $(DESTDIR)$(MANDIR)/man1/mkfs.cpm.1
++		$(INSTALL_DATA) -D fsck.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsck.cpm.1
++		$(INSTALL_DATA) -D fsed.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsed.cpm.1
++		$(INSTALL_DATA) -D cpm.5 $(DESTDIR)$(MANDIR)/man5/cpm.5
  
  clean:
- 		rm -f *$(OBJEXT) *.1 *.5
+ 		rm -f *$(OBJEXT)
