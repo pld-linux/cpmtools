@@ -1,12 +1,12 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.7
+Version:	2.13
 Release:	1
 License:	GPL v3+
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
-# Source0-md5:	0deadd1e8baac3808691bef73ddbb5c7
+# Source0-md5:	d0622e33c80d2abb44cbe2e844285ce6
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	libdsk-devel
@@ -42,8 +42,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-install -D cpm.5 $RPM_BUILD_ROOT%{_mandir}/man5/cpm.5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
