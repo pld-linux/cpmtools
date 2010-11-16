@@ -1,0 +1,36 @@
+--- cpmtools-2.13/configure.in.orig	2010-03-30 20:06:02.000000000 +0200
++++ cpmtools-2.13/configure.in	2010-11-16 08:36:21.015098261 +0100
+@@ -62,10 +62,12 @@
+ 
+ dnl Check for curses. If not found, don't build fsed.cpm
+ dnl Try both curses and ncurses
+-AC_CHECK_LIB(curses, printw, FSED_CPM=fsed.cpm LIBS="-lcurses $LIBS", FSED_CPM=)
++AC_CHECK_LIB(ncurses, printw, FSED_CPM=fsed.cpm NCURSESLIBS="-lcurses", FSED_CPM=)
+ if test x"$FSED_CPM" = x""; then
+-  AC_CHECK_LIB(ncurses, printw, FSED_CPM=fsed.cpm LIBS="-lncurses $LIBS", FSED_CPM=)
++  AC_CHECK_LIB(curses, printw, FSED_CPM=fsed.cpm NCURSESLIBS="-lncurses", FSED_CPM=)
+ fi
++AC_CHECK_LIB(tinfo, raw, NCURSESLIBS="$NCURSESLIBS -ltinfo")
++AC_SUBST([NCURSESLIBS])
+ 
+ dnl If using libdsk, check it's available. 
+ if test "$LIBDSK" != ""; then
+--- cpmtools-2.13/Makefile.in.orig	2010-11-16 08:31:59.727101613 +0100
++++ cpmtools-2.13/Makefile.in	2010-11-16 08:32:59.059104128 +0100
+@@ -20,6 +20,7 @@
+ EXEEXT =        @EXEEXT@
+ OBJEXT =        .@OBJEXT@
+ LIBS=           @LIBS@ @LDLIBS@
++NCURSESLIBS=	@NCURSESLIBS@
+ LDDEPS=		@LDDEPS@
+ CPPFLAGS=	@CPPFLAGS@ -DDISKDEFS=\"$(DISKDEFS)\" -DFORMAT=\"$(DEFFORMAT)\"
+ #
+@@ -63,7 +64,7 @@
+ 		$(CC) $(LDFLAGS) -o $@ fsck.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LIBS)
+ 
+ fsed.cpm$(EXEEXT):	fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LDDEPS)
+-		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LIBS)
++		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(NCURSESLIBS) $(LIBS)
+ 
+ fsck.test:	fsck.cpm
+ 		-./fsck.cpm -f ibm-3740 -n badfs/status

@@ -2,13 +2,15 @@ Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
 Version:	2.13
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
 # Source0-md5:	d0622e33c80d2abb44cbe2e844285ce6
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.moria.de/~michael/cpmtools/
+BuildRequires:	autoconf >= 2.13
 BuildRequires:	libdsk-devel
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,8 +30,10 @@ Z80-PC, ale działa także ze stacjami dyskietek.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__autoconf}
 CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 %configure \
 	--datarootdir=%{_datadir}/misc \
