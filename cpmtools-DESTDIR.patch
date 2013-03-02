@@ -1,9 +1,11 @@
---- cpmtools-2.13/Makefile.in.orig	2010-03-30 19:53:11.000000000 +0200
-+++ cpmtools-2.13/Makefile.in	2010-11-14 21:42:47.443102452 +0100
-@@ -80,24 +80,24 @@
+--- cpmtools-2.15/Makefile.in.orig	2013-03-02 20:24:53.958658546 +0100
++++ cpmtools-2.15/Makefile.in	2013-03-02 20:30:40.518644002 +0100
+@@ -80,26 +80,26 @@
  		-./fsck.cpm -f pcw -n badfs/label
  
  install:	all
+-		[ -d $(MANDIR)/man1 ] || $(INSTALL) -m 755 -d $(MANDIR)/man1
+-		[ -d $(MANDIR)/man5 ] || $(INSTALL) -m 755 -d $(MANDIR)/man5
 -		$(INSTALL) -s -m 755 cpmls $(BINDIR)/cpmls
 -		$(INSTALL) -s -m 755 cpmcp $(BINDIR)/cpmcp
 -		$(INSTALL) -s -m 755 cpmrm $(BINDIR)/cpmrm
@@ -22,6 +24,8 @@
 -		$(INSTALL_DATA) fsck.cpm.1 $(MANDIR)/man1/fsck.cpm.1
 -		$(INSTALL_DATA) fsed.cpm.1 $(MANDIR)/man1/fsed.cpm.1
 -		$(INSTALL_DATA) cpm.5 $(MANDIR)/man5/cpm.5
++		[ -d $(DESTDIR)$(MANDIR)/man1 ] || $(INSTALL) -m 755 -d $(DESTDIR)$(MANDIR)/man1
++		[ -d $(DESTDIR)$(MANDIR)/man5 ] || $(INSTALL) -m 755 -d $(DESTDIR)$(MANDIR)/man5
 +		$(INSTALL) -D -m 755 cpmls $(DESTDIR)$(BINDIR)/cpmls
 +		$(INSTALL) -D -m 755 cpmcp $(DESTDIR)$(BINDIR)/cpmcp
 +		$(INSTALL) -D -m 755 cpmrm $(DESTDIR)$(BINDIR)/cpmrm
@@ -31,15 +35,15 @@
 +		$(INSTALL) -D -m 755 fsck.cpm $(DESTDIR)$(BINDIR)/fsck.cpm
 +		[ $(FSED_CPM) != '' ] && $(INSTALL) -D -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
 +		$(INSTALL_DATA) -D diskdefs $(DESTDIR)@datarootdir@/diskdefs
-+		$(INSTALL_DATA) -D cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
-+		$(INSTALL_DATA) -D cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1
-+		$(INSTALL_DATA) -D cpmrm.1 $(DESTDIR)$(MANDIR)/man1/cpmrm.1
-+		$(INSTALL_DATA) -D cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchmod.1
-+		$(INSTALL_DATA) -D cpmchattr.1 $(DESTDIR)$(MANDIR)/man1/cpmchattr.1
-+		$(INSTALL_DATA) -D mkfs.cpm.1 $(DESTDIR)$(MANDIR)/man1/mkfs.cpm.1
-+		$(INSTALL_DATA) -D fsck.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsck.cpm.1
-+		$(INSTALL_DATA) -D fsed.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsed.cpm.1
-+		$(INSTALL_DATA) -D cpm.5 $(DESTDIR)$(MANDIR)/man5/cpm.5
++		$(INSTALL_DATA) cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
++		$(INSTALL_DATA) cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1
++		$(INSTALL_DATA) cpmrm.1 $(DESTDIR)$(MANDIR)/man1/cpmrm.1
++		$(INSTALL_DATA) cpmchmod.1 $(DESTDIR)$(MANDIR)/man1/cpmchmod.1
++		$(INSTALL_DATA) cpmchattr.1 $(DESTDIR)$(MANDIR)/man1/cpmchattr.1
++		$(INSTALL_DATA) mkfs.cpm.1 $(DESTDIR)$(MANDIR)/man1/mkfs.cpm.1
++		$(INSTALL_DATA) fsck.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsck.cpm.1
++		$(INSTALL_DATA) fsed.cpm.1 $(DESTDIR)$(MANDIR)/man1/fsed.cpm.1
++		$(INSTALL_DATA) cpm.5 $(DESTDIR)$(MANDIR)/man5/cpm.5
  
  clean:
  		rm -f *$(OBJEXT)
