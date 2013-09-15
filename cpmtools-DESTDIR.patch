@@ -1,5 +1,5 @@
---- cpmtools-2.15/Makefile.in.orig	2013-03-02 20:24:53.958658546 +0100
-+++ cpmtools-2.15/Makefile.in	2013-03-02 20:30:40.518644002 +0100
+--- cpmtools-2.16/Makefile.in.orig	2013-09-15 14:35:11.917504540 +0200
++++ cpmtools-2.16/Makefile.in	2013-09-15 14:37:22.097499077 +0200
 @@ -80,26 +80,26 @@
  		-./fsck.cpm -f pcw -n badfs/label
  
@@ -13,7 +13,7 @@
 -		$(INSTALL) -s -m 755 cpmchattr $(BINDIR)/cpmchattr
 -		$(INSTALL) -s -m 755 mkfs.cpm $(BINDIR)/mkfs.cpm
 -		$(INSTALL) -s -m 755 fsck.cpm $(BINDIR)/fsck.cpm
--		[ $(FSED_CPM) != '' ] && $(INSTALL) -s -m 755 fsed.cpm $(BINDIR)/fsed.cpm
+-		[ "$(FSED_CPM)" != '' ] && $(INSTALL) -s -m 755 fsed.cpm $(BINDIR)/fsed.cpm
 -		$(INSTALL_DATA) diskdefs @datarootdir@/diskdefs
 -		$(INSTALL_DATA) cpmls.1 $(MANDIR)/man1/cpmls.1
 -		$(INSTALL_DATA) cpmcp.1 $(MANDIR)/man1/cpmcp.1
@@ -33,7 +33,7 @@
 +		$(INSTALL) -D -m 755 cpmchattr $(DESTDIR)$(BINDIR)/cpmchattr
 +		$(INSTALL) -D -m 755 mkfs.cpm $(DESTDIR)$(BINDIR)/mkfs.cpm
 +		$(INSTALL) -D -m 755 fsck.cpm $(DESTDIR)$(BINDIR)/fsck.cpm
-+		[ $(FSED_CPM) != '' ] && $(INSTALL) -D -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
++		[ "$(FSED_CPM)" != '' ] && $(INSTALL) -D -m 755 fsed.cpm $(DESTDIR)$(BINDIR)/fsed.cpm
 +		$(INSTALL_DATA) -D diskdefs $(DESTDIR)@datarootdir@/diskdefs
 +		$(INSTALL_DATA) cpmls.1 $(DESTDIR)$(MANDIR)/man1/cpmls.1
 +		$(INSTALL_DATA) cpmcp.1 $(DESTDIR)$(MANDIR)/man1/cpmcp.1

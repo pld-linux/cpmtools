@@ -1,15 +1,14 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.15
+Version:	2.16
 Release:	1
 License:	GPL v3+
 Group:		Applications
 Source0:	http://www.moria.de/~michael/cpmtools/%{name}-%{version}.tar.gz
-# Source0-md5:	12451210924adec390cbfc52a5aa69fb
+# Source0-md5:	b2b204cf3b1d85b8e16be39b57a5a768
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-link.patch
-Patch2:		%{name}-libdsk-fix.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	autoconf >= 2.13
 BuildRequires:	libdsk-devel
@@ -32,7 +31,6 @@ Z80-PC, ale działa także ze stacjami dyskietek.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__autoconf}
