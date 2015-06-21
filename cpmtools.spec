@@ -1,12 +1,12 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.19
+Version:	2.20
 Release:	1
 License:	GPL v3+
 Group:		Applications/File
 Source0:	http://www.moria.de/~michael/cpmtools/files/%{name}-%{version}.tar.gz
-# Source0-md5:	e57a7add07a1a7f7b3b8196844b2aa8a
+# Source0-md5:	675dd715c93469330833c8b67abadcda
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.moria.de/~michael/cpmtools/
