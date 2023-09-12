@@ -1,13 +1,13 @@
 Summary:	Tools for accessing CP/M file systems
 Summary(pl.UTF-8):	Narzędzia pozwalające na dostęp do systemów plików CP/M
 Name:		cpmtools
-Version:	2.20
+Version:	2.24
 Release:	1
 License:	GPL v3+
 Group:		Applications/File
 Source0:	http://www.moria.de/~michael/cpmtools/files/%{name}-%{version}.tar.gz
-# Source0-md5:	675dd715c93469330833c8b67abadcda
-Patch0:		%{name}-DESTDIR.patch
+# Source0-md5:	0cb3a4c2fa7b2b05d9096d06b4b126b7
+Patch0:		%{name}-install.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.moria.de/~michael/cpmtools/
 BuildRequires:	autoconf >= 2.13
@@ -63,3 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/fsed.cpm.1*
 %{_mandir}/man1/mkfs.cpm.1*
 %{_mandir}/man5/cpm.5*
+%{_mandir}/man5/diskdefs.5*

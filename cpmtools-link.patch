@@ -20,9 +20,9 @@
  
  dnl If using libdsk, check it's available. 
  if test "$LIBDSK" != ""; then
---- cpmtools-2.13/Makefile.in.orig	2010-11-16 08:31:59.727101613 +0100
-+++ cpmtools-2.13/Makefile.in	2010-11-16 08:32:59.059104128 +0100
-@@ -20,6 +20,7 @@
+--- cpmtools-2.24/Makefile.in.orig	2023-01-30 20:32:25.000000000 +0100
++++ cpmtools-2.24/Makefile.in	2023-09-12 21:55:25.491408281 +0200
+@@ -20,6 +20,7 @@ FSED_CPM=       @FSED_CPM@
  EXEEXT =        @EXEEXT@
  OBJEXT =        .@OBJEXT@
  LIBS=           @LIBS@ @LDLIBS@
@@ -30,12 +30,12 @@
  LDDEPS=		@LDDEPS@
  CPPFLAGS=	@CPPFLAGS@ -DDISKDEFS=\"$(DISKDEFS)\" -DFORMAT=\"$(DEFFORMAT)\"
  #
-@@ -63,7 +64,7 @@
+@@ -63,7 +64,7 @@ fsck.cpm$(EXEEXT):	fsck.cpm$(OBJEXT) cpm
  		$(CC) $(LDFLAGS) -o $@ fsck.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LIBS)
  
- fsed.cpm$(EXEEXT):	fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LDDEPS)
--		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LIBS)
-+		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(NCURSESLIBS) $(LIBS)
+ fsed.cpm$(EXEEXT):	fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) term_curses$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LDDEPS)
+-		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) term_curses$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(LIBS)
++		$(CC) $(LDFLAGS) -o $@ fsed.cpm$(OBJEXT) cpmfs$(OBJEXT) term_curses$(OBJEXT) getopt$(OBJEXT) getopt1$(OBJEXT) $(DEVICEOBJ) $(NCURSESLIBS) $(LIBS)
  
  fsck.test:	fsck.cpm
  		-./fsck.cpm -f ibm-3740 -n badfs/status
